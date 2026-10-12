@@ -1,0 +1,86 @@
+seed: 0
+num_views: 8
+
+logging:
+  offline: False
+  experiment_name: calfvo_croco
+  experiment_group: calfvo
+  project_name: CalfVO
+  output_dir: /path/to/output
+
+model:
+  embed_dim: 1024
+  patch_size: 14
+  img_size: [224, 224]
+  depth: 12
+  blocks_to_freeze: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+
+training_datasets:
+  tartan_matrix:
+    dataset_path: /path/to/datasets/tartanv2_videos_288
+    split_file_path: splits/tartanv2_train_no_islam_envs.txt
+    stride: [1, 5]
+    scene_sampling: proportional
+    mix_weight: 45
+    overlap: 1
+  scannet_matrix:
+    dataset_path: /path/to/datasets/scannet_videos_288
+    split_file_path: splits/scannet_train.txt
+    stride: [1, 5]
+    scene_sampling: proportional
+    mix_weight: 40
+    overlap: 1
+  kitti_matrix:
+    dataset_path: /path/to/datasets/KittiVideos
+    split_file_path: splits/kitti_train_00_08.txt
+    stride: [1, 2]
+    scene_sampling: proportional
+    mix_weight: 20
+    overlap: 1
+  vkitti_matrix:
+    dataset_path: /path/to/datasets/vkitti_videos_288
+    split_file_path: splits/vkitti_train.txt
+    stride: [1, 2]
+    scene_sampling: proportional
+    mix_weight: 20
+    overlap: 1
+
+test_datasets:
+  scannet_matrix:
+    dataset_path: /path/to/datasets/scannet_videos_288
+    split_file_path: splits/scannet_test_clean.txt
+    stride: 1
+    overlap: 5
+  tartanv1_matrix:
+    dataset_path: /path/to/datasets/tartanv1_videos_288
+    split_file_path: splits/tartanv1_test.txt
+    stride: 1
+    overlap: 5
+  tum_matrix:
+    dataset_path: /path/to/datasets/tum_videos
+    split_file_path: splits/tum_full_test.txt
+    stride: 1
+    overlap: 5
+  kitti_matrix:
+    dataset_path: /path/to/datasets/KittiVideos
+    split_file_path: splits/kitti_test_09_10.txt
+    stride: 1
+    overlap: 5
+  euroc_matrix:
+    dataset_path: /path/to/datasets/EuRoCVideos
+    split_file_path: splits/euroc_all.txt
+    stride: 1
+    overlap: 5
+
+optimization:
+  batch_size: 20
+  train_steps: 57000
+  warmup_steps: 1900
+  eval_every: 950
+  save_ckpt_every: 11400
+  lr: 0.0001
+  min_lr: 0.00001
+
+pose_stats:
+  trans_mean: [0.0, 0.0, 0.01]
+  trans_std: [0.2, 0.1, 0.2]

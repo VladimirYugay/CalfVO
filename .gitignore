@@ -1,0 +1,49 @@
+# Python-related
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual environments
+venv/
+env/
+.env
+
+# PyTorch-related
+*.pth
+*.pt
+*.ckpt
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# IDE-related
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS-related
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# Data and model files (uncomment if needed)
+# data/
+# models/
+
+# Wandb
+wandb/
+
+# Experiment outputs
+output/
+outputs/
+results/
+
+
+# Upstream dependencies, fetched at pinned commits by
+# scripts/setup_dependencies.sh. Not vendored: both are CC BY-NC-SA 4.0 (Naver).
+croco/
+dust3r/
